@@ -60,4 +60,14 @@ public class StudentControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    public void testUpdateStudent() throws Exception {
+        // Arrange
+
+        // Act & Assert
+        mockMvc.perform(MockMvcRequestBuilders.put("/students/1?updatedName=John")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
 }
