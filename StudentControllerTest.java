@@ -35,4 +35,16 @@ public class StudentControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    public void testGetStudentById() throws Exception {
+        // Arrange
+        Student student = new Student("1", "John");
+        when(studentService.getStudentById("1")).thenReturn(Optional.of(student));
+
+        // Act & Assert
+        mockMvc.perform(MockMvcRequestBuilders.get("/students/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
 }
