@@ -47,4 +47,17 @@ public class StudentControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
+
+    
+    @Test
+    public void testAddStudent() throws Exception {
+        // Arrange
+        Student student = new Student("1", "John");
+
+        // Act & Assert
+        mockMvc.perform(MockMvcRequestBuilders.post("/students")
+                .content("{\"id\":\"1\", \"name\":\"John\"}")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
 }
