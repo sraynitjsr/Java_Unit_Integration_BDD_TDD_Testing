@@ -70,4 +70,14 @@ public class StudentControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    public void testDeleteStudent() throws Exception {
+        // Arrange
+
+        // Act & Assert
+        mockMvc.perform(MockMvcRequestBuilders.delete("/students/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
 }
